@@ -311,18 +311,23 @@ const subtractMin = function (numbers) {
   return numbers.map((element) => element - smallestNumber);
 };
 
-// calculate ranks (1-based, descending) for scores in [{ name: "Alice", score: 80 }, { name: "Bob", score: 100 }, { name: "Charlie", score: 90 }] => [2, 1, 3]
+// calculate ranks (1-based, descending) for scores in 
+// [{ name: "Alice", score: 80 }, { name: "Bob", score: 100 }, { name: "Charlie", score: 90 }] 
+// => [2, 1, 3]
 const calculateRanks = function (objects) { };
 
-// normalize strings by the longest string length in ["cat", "elephant", "dog"] => ["cat    ", "elephant", "dog    "]
+// normalize strings by the longest string length in 
+// ["cat", "elephant", "dog"] => ["cat    ", "elephant", "dog    "]
 // (pad with spaces to match the longest length)
 const normalizeStringLengths = function (strings) { };
 
-// normalize strings by centering them based on the longest string length in ["cat", "elephant", "dog"] => ["  cat   ", "elephant", "  dog   "]
+// normalize strings by centering them based on the longest string length in 
+// ["cat", "elephant", "dog"] => ["  cat   ", "elephant", "  dog   "]
 // (pad with spaces to justify to the center)
 const centerJustifyStrings = function (strings) { };
 
-// scale all numbers proportionally so the largest number becomes 100 in [20, 50, 80] => [25, 62.5, 100]
+// scale all numbers proportionally so the largest number becomes 100 in [20, 50, 80] 
+// => [25, 62.5, 100]
 const scaleToMax100 = function (numbers) { };
 
 // map each number to the difference between it and the average of the array in [10, 20, 30] => [-10, 0, 10]
@@ -334,6 +339,7 @@ const stringFrequencies = function (strings) { };
 // mark the largest number in an array as true, others as false in [1, 3, 2] => [false, true, false]
 const markLargestNumber = function (numbers) { };
 
+/////////////////////
 // normalize scores based on a curve: first find the max score, then subtract the mean, and scale the results to a range of 0-100 in [{ name: "Alice", score: 80 }, { name: "Bob", score: 100 }, { name: "Charlie", score: 90 }] => [60, 100, 80]
 // Steps: Find max score, calculate mean, normalize each score.
 const normalizeWithCurve = function (objects) { };
