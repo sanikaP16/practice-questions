@@ -21,12 +21,17 @@ const firstCharactersOf = function (strings) {
   return strings.map((element) => element.charAt(0));
 };
 
+//----------------------------------------------------------------------------
 // truth values of [0, 1, 2, 3] => [false, true, true, true]
-// Assume non-zero numbers are true, and zero is false
-const truthValuesOf = function (numbers) { };
+const truthValuesOf = function (numbers) {
+  return numbers.map((element) => Boolean(element));
+};
 
+//----------------------------------------------------------------------------
 // reverse strings of ["hello", "world"] => ["olleh", "dlrow"]
-const reversedStringsOf = function (strings) { };
+const reversedStringsOf = function (strings) {
+  return strings.map((element) => element.split("").reverse().join(""));
+};
 
 // double letters of ["cat", "dog", "bat"] => ["ccaat", "ddoog", "bbaatt"]
 const doubleLettersOf = function (strings) { };
