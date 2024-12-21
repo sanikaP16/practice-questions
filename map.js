@@ -195,14 +195,18 @@ const extractAges = function (listOfObjects) {
   return listOfObjects.map((object) => object.age);
 };
 
-// extract the first letters of names from [{ name: "Alice" }, { name: "Bob" }]
+//----------------------------------------------------------------------------
+//----------------------------------------------------------------------------
 //  => ["A", "B"]
 const firstLettersOfNames = function (listOfObjects) {
   return listOfObjects.map((object) => (object.name).charAt(0));
 };
 
+// extract the first letters of names from [{ name: "Alice" }, { name: "Bob" }]
 // calculate areas from [{ width: 2, height: 3 }, { width: 4, height: 5 }] => [6, 20]
-const calculateAreas = function (rectangles) { };
+const calculateAreas = function (rectangles) {
+  return rectangles.map((object) => object.width * object.height);
+};
 
 // extract boolean flags from [{ active: true }, { active: false }] => [true, false]
 const extractFlags = function (objects) { };
