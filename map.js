@@ -238,6 +238,7 @@ const isAdult = function (listOfObjects) {
   return listOfObjects.map((object) => object.age >= 18);
 };
 
+//***** */
 // create abbreviations from [{ city: "New York", country: "USA" }, 
 // { city: "Los Angeles", country: "USA" }] => ["NY, USA", "LA, USA"]
 const abbreviations = function (objects) {
@@ -251,11 +252,18 @@ const mathScores = function (listOfObjects) {
   return listOfObjects.map((object) => object.scores.math);
 };
 
+//----------------------------------------------------------------------------
 // extract coordinates from [{ x: 1, y: 2 }, { x: 3, y: 4 }] => [[1, 2], [3, 4]]
-const extractCoordinates = function (objects) { };
+const extractCoordinates = function (listOfObjects) {
+  return listOfObjects.map((object) => [object.x, object.y]);
+};
 
-// extract full name and age from [{ firstName: "Alice", lastName: "Smith", age: 25 }, { firstName: "Bob", lastName: "Brown", age: 30 }] => [["Alice Smith", 25], ["Bob Brown", 30]]
-const fullNameAndAge = function (objects) { };
+// extract full name and age from [{ firstName: "Alice", lastName: "Smith", age: 25 }, 
+// { firstName: "Bob", lastName: "Brown", age: 30 }] => [["Alice Smith", 25], ["Bob Brown", 30]]
+const fullNameAndAge = function (listOfObjects) {
+  return listOfObjects.map((object) =>
+    [object.firstName.concat(" ", object.lastName), object.age])
+};
 
 // extract scores from [{ name: "Alice", scores: { math: 90, english: 85 } }, { name: "Bob", scores: { math: 80, english: 75 } }] => [[90, 85], [80, 75]]
 const extractScores = function (objects) { };
