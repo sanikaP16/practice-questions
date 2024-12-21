@@ -265,8 +265,11 @@ const fullNameAndAge = function (listOfObjects) {
     [object.firstName.concat(" ", object.lastName), object.age])
 };
 
-// extract scores from [{ name: "Alice", scores: { math: 90, english: 85 } }, { name: "Bob", scores: { math: 80, english: 75 } }] => [[90, 85], [80, 75]]
-const extractScores = function (objects) { };
+// extract scores from [{ name: "Alice", scores: { math: 90, english: 85 } }, 
+// { name: "Bob", scores: { math: 80, english: 75 } }] => [[90, 85], [80, 75]]
+const extractScores = function (listOfObjects) {
+  return listOfObjects.map((object) => [object.scores.math, object.scores.english]);
+};
 
 // extract key-value pairs from [{ key: "a", value: 1 }, { key: "b", value: 2 }] => [["a", 1], ["b", 2]]
 const keyValuePairs = function (objects) { };
