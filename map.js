@@ -33,15 +33,21 @@ const reversedStringsOf = function (strings) {
   return strings.map((element) => element.split("").reverse().join(""));
 };
 
+//----------------------------------------------------------------------------
 // double letters of ["cat", "dog", "bat"] => ["ccaat", "ddoog", "bbaatt"]
 const doubleLettersOf = function (strings) { };
 
+//----------------------------------------------------------------------------
 // boolean negation of [true, false, true] => [false, true, false]
-const negatedBooleansOf = function (booleans) { };
+const negatedBooleansOf = function (booleans) {
+  return booleans.map((element) => !element);
+};
 
+//----------------------------------------------------------------------------
 // character codes of ["a", "b", "c"] => [97, 98, 99]
-// Use the `charCodeAt` method on each string
-const charCodesOf = function (strings) { };
+const charCodesOf = function (strings) {
+  return strings.map((element) => element.charCodeAt());
+};
 
 // extract domain names from ["user1@gmail.com", "admin@yahoo.com"] => ["gmail.com", "yahoo.com"]
 const domainNamesOf = function (emails) { };

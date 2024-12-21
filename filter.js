@@ -8,7 +8,7 @@ const filterLongWords = function (words) { };
 const filterAdults = function (people) { };
 
 // active users [{username: "alice", active: true}, {username: "bob", active: false}] => [{username: "alice", active: true}]
-const filterActiveUsers = function (users) { };
+const filterActiveUser = function (users) { };
 
 // numbers greater than 10 [5, 12, 7, 18, 3] => [12, 18]
 const filterNumbersGreaterThanTen = function (numbers) { };
@@ -25,7 +25,9 @@ const filterHighGrades = function (students) { };
 // products that are in stock [{product: "apple", inStock: true}, {product: "banana", inStock: false}] => [{product: "apple", inStock: true}]
 const filterInStockProducts = function (products) { };
 
-// orders placed in the last 30 days [{orderDate: "2024-11-01"}, {orderDate: "2024-12-01"}] => [{orderDate: "2024-12-01"}]
+// orders placed in the last 30 days 
+// [{orderDate: "2024-11-01"}, {orderDate: "2024-12-01"}] 
+// => [{orderDate: "2024-12-01"}]
 const filterRecentOrders = function (orders) { };
 
 // products with a price lower than the average [{name: "item1", price: 10}, {name: "item2", price: 20}, {name: "item3", price: 5}] => [{name: "item1", price: 10}, {name: "item3", price: 5}]
@@ -188,7 +190,7 @@ const filterStudentsByGrade = function (students, minGrade) { };
 const filterBooksByAward = function (books, award) { };
 
 // Filter users where at least one post has more than a specific number of likes [{user: {name: "John", posts: [{title: "Post 1", likes: 150}, {title: "Post 2", likes: 20}]}}] => [{user: {name: "John", posts: [{title: "Post 1", likes: 150}, {title: "Post 2", likes: 20}]}}]
-const filterUsersByPostLikes = function (users, minLikes) { };
+const filterUsersByPostLike = function (users, minLikes) { };
 
 // Filter cities where at least one attraction is in a specific category [{city: {name: "Paris", attractions: [{name: "Eiffel Tower", category: "landmark"}, {name: "Louvre", category: "museum"}]}}] => [{city: {name: "Paris", attractions: [{name: "Eiffel Tower", category: "landmark"}, {name: "Louvre", category: "museum"}]}}]
 const filterCitiesByAttractionCategory = function (cities, category) { };
@@ -214,7 +216,10 @@ const filterUsersByPostComments = function (users, minComments) { };
 // Filter users who have at least one post in a specific category [{user: {name: "Anna", posts: [{title: "Post 1", category: "Food"}, {title: "Post 2", category: "Travel"}]}}] => [{user: {name: "Anna", posts: [{title: "Post 1", category: "Food"}, {title: "Post 2", category: "Travel"}]}}]
 const filterUsersByPostCategory = function (users, category) { };
 
-// Filter users who have a certain number of followers and have posted in the last 30 days [{user: {name: "Tom", followers: 1000, lastPostDate: "2024-11-10"}}] => [{user: {name: "Tom", followers: 1000, lastPostDate: "2024-11-10"}}]
+// Filter users who have a certain number of followers and have posted in
+//  the last 30 days 
+// [{user: {name: "Tom", followers: 1000, lastPostDate: "2024-11-10"}}] 
+// => [{user: {name: "Tom", followers: 1000, lastPostDate: "2024-11-10"}}]
 const filterActiveUsers = function (users, minFollowers, daysAgo) { };
 
 // Filter posts that have at least one hashtag from a list of trending hashtags [{post: {title: "Post 1", hashtags: ["#food", "#vegan"]}}] => [{post: {title: "Post 1", hashtags: ["#food", "#vegan"]}}]
