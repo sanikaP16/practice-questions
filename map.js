@@ -128,7 +128,7 @@ const reversedWordsOf = function (strings) {
 
 //***** */
 //----------------------------------------------------------------------------
-// extract unique characters from ["apple", "banana", "grape"] => ["aple", "ban", "gra"]
+// extract unique characters from ["apple", "banana", "grape"] => ["apl", "ban", "gra"]
 // Maintain the order of their first appearance in each string
 const uniqueCharactersOf = function (strings) {
 
@@ -136,7 +136,17 @@ const uniqueCharactersOf = function (strings) {
 //----------------------------------------------------------------------------
 
 // generate ranges from [3, 5, 2] => [[0, 1, 2], [0, 1, 2, 3, 4], [0, 1]]
-const rangesOf = function (numbers) { };
+const rangesOf = function (numbers) {
+  return numbers.map(function (number) {
+    return [number].reduce(function (accumalator, element) {
+      for (let i = 0; i < element; i++) {
+        accumalator.push(i);
+      }
+
+      return accumalator;
+    }, []);
+  });
+};
 
 // capitalize first letters of ["hello world", "goodbye moon"] => ["Hello World", "Goodbye Moon"]
 const getCapitalizedWord = (word) =>
@@ -161,7 +171,9 @@ const flattenedArraysOf = function (arrays) {
 };
 
 // sort letters in ["cat", "bat", "rat"] alphabetically => ["act", "abt", "art"]
-const sortedLettersOf = function (strings) { };
+const sortedLettersOf = function (strings) {
+  return strings.map((string) => [...string].sort().join(""));
+};
 
 // wrap strings in brackets ["apple", "banana"] => ["[apple]", "[banana]"]
 const wrappedStringsOf = function (strings) { };
