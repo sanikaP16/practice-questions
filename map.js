@@ -133,8 +133,8 @@ const reversedWordsOf = function (strings) {
 const uniqueCharactersOf = function (strings) {
 
 };
-//----------------------------------------------------------------------------
 
+//----------------------------------------------------------------------------
 // generate ranges from [3, 5, 2] => [[0, 1, 2], [0, 1, 2, 3, 4], [0, 1]]
 const rangesOf = function (numbers) {
   return numbers.map(function (number) {
@@ -148,7 +148,9 @@ const rangesOf = function (numbers) {
   });
 };
 
-// capitalize first letters of ["hello world", "goodbye moon"] => ["Hello World", "Goodbye Moon"]
+//----------------------------------------------------------------------------
+// capitalize first letters of ["hello world", "goodbye moon"]
+//  => ["Hello World", "Goodbye Moon"]
 const getCapitalizedWord = (word) =>
   (word.charAt(0).toUpperCase() + word.slice(1));
 
@@ -158,6 +160,7 @@ const capitalizedFirstLettersOf = function (strings) {
     .join(" "));
 };
 
+//----------------------------------------------------------------------------
 // find word lengths in ["apple pie", "banana split"] => [[5, 3], [6, 5]]
 const wordLengthsOf = function (strings) {
   return strings.map((elements) =>
@@ -165,24 +168,31 @@ const wordLengthsOf = function (strings) {
       singleElement.length));
 };
 
+//----------------------------------------------------------------------------
 // flatten nested arrays of [[1, [2, 3]], [4, [5, 6]]] => [[1, 2, 3], [4, 5, 6]]
 const flattenedArraysOf = function (arrays) {
   return arrays.map((elements) => elements.flat());
 };
 
+//----------------------------------------------------------------------------
 // sort letters in ["cat", "bat", "rat"] alphabetically => ["act", "abt", "art"]
 const sortedLettersOf = function (strings) {
   return strings.map((string) => [...string].sort().join(""));
 };
 
+//----------------------------------------------------------------------------
 // wrap strings in brackets ["apple", "banana"] => ["[apple]", "[banana]"]
 const wrappedStringsOf = function (strings) { };
 
 // extract names from [{ name: "Alice" }, { name: "Bob" }] => ["Alice", "Bob"]
-const extractNames = function (objects) { };
+const extractNames = function (listOfObjects) {
+  return listOfObjects.map((object) => object.name);
+};
 
 // extract ages from [{ age: 25 }, { age: 30 }] => [25, 30]
-const extractAges = function (objects) { };
+const extractAges = function (listOfObjects) {
+  return listOfObjects.map((key) => object.age);
+};
 
 // extract the first letters of names from [{ name: "Alice" }, { name: "Bob" }] => ["A", "B"]
 const firstLettersOfNames = function (objects) { };
