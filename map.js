@@ -208,11 +208,13 @@ const calculateAreas = function (rectangles) {
   return rectangles.map((object) => object.width * object.height);
 };
 
+//----------------------------------------------------------------------------
 // extract boolean flags from [{ active: true }, { active: false }] => [true, false]
 const extractFlags = function (listOfObjects) {
   return listOfObjects.map((object) => object.active);
 };
 
+//----------------------------------------------------------------------------
 // concatenate first and last names from [{ firstName: "Alice", lastName: "Smith" },  
 // { firstName: "Bob", lastName: "Brown" }] => ["Alice Smith", "Bob Brown"]
 const fullNames = function (listOfObjects) {
@@ -220,6 +222,7 @@ const fullNames = function (listOfObjects) {
     object.firstName.concat(" ", object.lastName));
 };
 
+//----------------------------------------------------------------------------
 // calculate total prices from [{ price: 10, quantity: 2 }, { price: 5, quantity: 4 }] 
 // => [20, 20]
 // (price * quantity)
@@ -227,6 +230,7 @@ const totalPrices = function (listOfObjects) {
   return listOfObjects.map((object) => object.price * object.quantity)
 };
 
+//----------------------------------------------------------------------------
 // determine if a person is an adult from [{ name: "Alice", age: 17 }, 
 // { name: "Bob", age: 22 }] => [false, true]
 // (age >= 18)
@@ -234,11 +238,18 @@ const isAdult = function (listOfObjects) {
   return listOfObjects.map((object) => object.age >= 18);
 };
 
-// create abbreviations from [{ city: "New York", country: "USA" }, { city: "Los Angeles", country: "USA" }] => ["NY, USA", "LA, USA"]
-const abbreviations = function (objects) { };
+// create abbreviations from [{ city: "New York", country: "USA" }, 
+// { city: "Los Angeles", country: "USA" }] => ["NY, USA", "LA, USA"]
+const abbreviations = function (objects) {
 
-// extract scores for math tests from [{ name: "Alice", scores: { math: 90, english: 85 } }, { name: "Bob", scores: { math: 80, english: 75 } }] => [90, 80]
-const mathScores = function (objects) { };
+};
+
+//----------------------------------------------------------------------------
+// extract scores for math tests from [{ name: "Alice", scores: { math: 90, english: 85 } }, 
+// { name: "Bob", scores: { math: 80, english: 75 } }] => [90, 80]
+const mathScores = function (listOfObjects) {
+  return listOfObjects.map((object) => object.scores.math);
+};
 
 // extract coordinates from [{ x: 1, y: 2 }, { x: 3, y: 4 }] => [[1, 2], [3, 4]]
 const extractCoordinates = function (objects) { };
