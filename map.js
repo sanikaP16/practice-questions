@@ -285,17 +285,31 @@ const splitFullNames = function (listOfObjects) {
   return listOfObjects.map((object) => object.name.split(" "));
 };
 
+//----------------------------------------------------------------------------
 // normalize scores so they fall between 0 and 1 based on the max score from 
 // [{ name: "Alice", score: 80 }, { name: "Bob", score: 100 }] => [0.8, 1]
 const normalizeScores = function (listOfObjects) {
   return listOfObjects.map((object) => object.score / 100);
 };
 
-// calculate percentage contribution of each number in [10, 20, 30] (relative to the total sum) => [16.67, 33.33, 50]
-const percentageContributions = function (numbers) { };
+//----------------------------------------------------------------------------
+// calculate percentage contribution of each number in [10, 20, 30] 
+// (relative to the total sum) => [16.67, 33.33, 50]
+const percentageContributions = function (numbers) {
+  const sumOfNumbers = numbers.reduce(function (sum, element) {
+    return sum + element;
+  }, 0);
 
+  return numbers.map((element) => ((element / sumOfNumbers) * 100).toFixed(2));
+};
+
+//----------------------------------------------------------------------------
 // subtract the smallest number from each number in [3, 8, 1] => [2, 7, 0]
-const subtractMin = function (numbers) { };
+const subtractMin = function (numbers) {
+  const smallestNumber = Math.min(...numbers);
+
+  return numbers.map((element) => element - smallestNumber);
+};
 
 // calculate ranks (1-based, descending) for scores in [{ name: "Alice", score: 80 }, { name: "Bob", score: 100 }, { name: "Charlie", score: 90 }] => [2, 1, 3]
 const calculateRanks = function (objects) { };
