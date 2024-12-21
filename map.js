@@ -220,13 +220,19 @@ const fullNames = function (listOfObjects) {
     object.firstName.concat(" ", object.lastName));
 };
 
-// calculate total prices from [{ price: 10, quantity: 2 }, { price: 5, quantity: 4 }] => [20, 20]
+// calculate total prices from [{ price: 10, quantity: 2 }, { price: 5, quantity: 4 }] 
+// => [20, 20]
 // (price * quantity)
-const totalPrices = function (objects) { };
+const totalPrices = function (listOfObjects) {
+  return listOfObjects.map((object) => object.price * object.quantity)
+};
 
-// determine if a person is an adult from [{ name: "Alice", age: 17 }, { name: "Bob", age: 22 }] => [false, true]
+// determine if a person is an adult from [{ name: "Alice", age: 17 }, 
+// { name: "Bob", age: 22 }] => [false, true]
 // (age >= 18)
-const isAdult = function (objects) { };
+const isAdult = function (listOfObjects) {
+  return listOfObjects.map((object) => object.age >= 18);
+};
 
 // create abbreviations from [{ city: "New York", country: "USA" }, { city: "Los Angeles", country: "USA" }] => ["NY, USA", "LA, USA"]
 const abbreviations = function (objects) { };
