@@ -258,6 +258,7 @@ const extractCoordinates = function (listOfObjects) {
   return listOfObjects.map((object) => [object.x, object.y]);
 };
 
+//----------------------------------------------------------------------------
 // extract full name and age from [{ firstName: "Alice", lastName: "Smith", age: 25 }, 
 // { firstName: "Bob", lastName: "Brown", age: 30 }] => [["Alice Smith", 25], ["Bob Brown", 30]]
 const fullNameAndAge = function (listOfObjects) {
@@ -265,24 +266,30 @@ const fullNameAndAge = function (listOfObjects) {
     [object.firstName.concat(" ", object.lastName), object.age])
 };
 
+//----------------------------------------------------------------------------
 // extract scores from [{ name: "Alice", scores: { math: 90, english: 85 } }, 
 // { name: "Bob", scores: { math: 80, english: 75 } }] => [[90, 85], [80, 75]]
 const extractScores = function (listOfObjects) {
   return listOfObjects.map((object) => [object.scores.math, object.scores.english]);
 };
 
+//----------------------------------------------------------------------------
 // extract key-value pairs from [{ key: "a", value: 1 }, { key: "b", value: 2 }] => [["a", 1], ["b", 2]]
 const keyValuePairs = function (listOfObjects) {
   return listOfObjects.map((object) => [object.key, object.value]);
 };
 
+//----------------------------------------------------------------------------
 // split full names into first and last names from [{ name: "Alice Smith" }, { name: "Bob Brown" }] => [["Alice", "Smith"], ["Bob", "Brown"]]
 const splitFullNames = function (listOfObjects) {
   return listOfObjects.map((object) => object.name.split(" "));
 };
 
-// normalize scores so they fall between 0 and 1 based on the max score from [{ name: "Alice", score: 80 }, { name: "Bob", score: 100 }] => [0.8, 1]
-const normalizeScores = function (objects) { };
+// normalize scores so they fall between 0 and 1 based on the max score from 
+// [{ name: "Alice", score: 80 }, { name: "Bob", score: 100 }] => [0.8, 1]
+const normalizeScores = function (listOfObjects) {
+  return listOfObjects.map((object) => object.score / 100);
+};
 
 // calculate percentage contribution of each number in [10, 20, 30] (relative to the total sum) => [16.67, 33.33, 50]
 const percentageContributions = function (numbers) { };
