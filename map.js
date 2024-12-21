@@ -179,23 +179,27 @@ const flattenedArraysOf = function (arrays) {
 const sortedLettersOf = function (strings) {
   return strings.map((string) => [...string].sort().join(""));
 };
-
-//----------------------------------------------------------------------------
+//*** */
 // wrap strings in brackets ["apple", "banana"] => ["[apple]", "[banana]"]
 const wrappedStringsOf = function (strings) { };
 
+//----------------------------------------------------------------------------
 // extract names from [{ name: "Alice" }, { name: "Bob" }] => ["Alice", "Bob"]
 const extractNames = function (listOfObjects) {
   return listOfObjects.map((object) => object.name);
 };
 
+//----------------------------------------------------------------------------
 // extract ages from [{ age: 25 }, { age: 30 }] => [25, 30]
 const extractAges = function (listOfObjects) {
-  return listOfObjects.map((key) => object.age);
+  return listOfObjects.map((object) => object.age);
 };
 
-// extract the first letters of names from [{ name: "Alice" }, { name: "Bob" }] => ["A", "B"]
-const firstLettersOfNames = function (objects) { };
+// extract the first letters of names from [{ name: "Alice" }, { name: "Bob" }]
+//  => ["A", "B"]
+const firstLettersOfNames = function (listOfObjects) {
+  return listOfObjects.map((object) => (object.name).charAt(0));
+};
 
 // calculate areas from [{ width: 2, height: 3 }, { width: 4, height: 5 }] => [6, 20]
 const calculateAreas = function (rectangles) { };
