@@ -1,12 +1,21 @@
-// squares of [1, 2, 3] => [1, 4, 9]
-const squaresOf = function (numbers) { };
+const squaresOf = function (numbers) {
+  const listOfNumber = numbers;
+  return listOfNumber.map((element) => element * element);
+};
 
-// lengths of ["apple", "banana", "kiwi"] => [5, 6, 4]
-const lengthsOf = function (strings) { };
+//----------------------------------------------------------------------------
 
-// uppercase of ["hello", "world"] => ["HELLO", "WORLD"]
-const uppercaseOf = function (strings) { };
+const lengthsOf = function (strings) {
+  return strings.map((element) => element.length);
+};
 
+//----------------------------------------------------------------------------
+
+const uppercaseOf = function (strings) {
+  return strings.map((element) => element.toUpperCase());
+};
+
+//----------------------------------------------------------------------------
 // first characters of ["apple", "banana", "kiwi"] => ["a", "b", "k"]
 const firstCharactersOf = function (strings) { };
 
