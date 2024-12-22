@@ -73,10 +73,14 @@ const findSumOfEvenSquares = function (numbers) {
 }
 
 // concatenateWords(["hello", "world"]) => "helloworld"
-const getConcatenatedWord = (accumalator, word) => accumalator.concat(word);
+const joinWords = function (char) {
+  return function (accumalator, word) {
+    return accumalator.concat(char, word);
+  };
+};
 
 const concatenateWords = function (words) {
-  return words.reduce(getConcatenatedWord, "");
+  return words.reduce(joinWords(""), "");
 }
 
 // longestWord(["apple", "banana", "cherry", "kiwi"]) => "banana"
@@ -98,11 +102,10 @@ const shortestWord = function (words) {
 }
 
 // joinWithComma(["apple", "banana", "cherry"]) => "apple,banana,cherry"
-const joinWords = (accumalator, word) => accumalator.concat(",", word);
 
 const joinWithComma = function (words) {
-  return words.reduce(joinWords);
-}
+  return words.reduce(joinWords(","));
+};
 
 // reverseWords(["hello", "world"]) => "world hello"
 const getReverseWords = (accumalator, word) => word.concat(" ", accumalator);
@@ -117,9 +120,11 @@ const getJoinedWord = (accumalator, word) => accumalator.concat(" ", word);
 const joinWordsWithSpace = function (words) {
   return words.reduce(getJoinedWord);
 }
-
 // concatenateNames(["John", "Jane", "Doe"]) => "JohnJaneDoe"
-const concatenateNames = function (names) { }
+
+const concatenateNames = function (names) {
+  return names.reduce(joinWords(""));
+}
 
 // countVowelsInWords(["hello", "world"]) => "eoo"
 const countVowelsInWords = function (words) { }
