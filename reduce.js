@@ -127,7 +127,14 @@ const concatenateNames = function (names) {
 }
 
 // countVowelsInWords(["hello", "world"]) => "eoo"
-const countVowelsInWords = function (words) { }
+const getVowels = function (accumalator, char) {
+  return 'aeiou'.includes(char.toLowerCase()) ?
+    accumalator + char : accumalator;
+}
+
+const countVowelsInWords = function (words) {
+  return [...words.join("")].reduce(getVowels, "");
+}
 
 // makeCamelCase(["hello", "world", "how", "are", "you"]) => "helloWorldHowAreYou"
 const makeCamelCase = function (words) { }

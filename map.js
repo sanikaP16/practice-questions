@@ -49,7 +49,7 @@ const charCodesOf = function (strings) {
 //----------------------------------------------------------------------------
 const domainNamesOf = function (emails) {
   return emails.map((element) =>
-    element.includes("@") ? element.slice(element.indexOf("@")) : "");
+    element.includes("@") ? element.slice(element.indexOf("@") + 1) : "");
 };
 
 //----------------------------------------------------------------------------
