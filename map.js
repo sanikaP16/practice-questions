@@ -136,16 +136,17 @@ const uniqueCharactersOf = function (strings) {
 
 //----------------------------------------------------------------------------
 // generate ranges from [3, 5, 2] => [[0, 1, 2], [0, 1, 2, 3, 4], [0, 1]]
-const rangesOf = function (numbers) {
-  return numbers.map(function (number) {
-    return [number].reduce(function (accumalator, element) {
-      for (let i = 0; i < element; i++) {
-        accumalator.push(i);
-      }
+const range = function (start, end) {
+  const rangeArray = [];
+  for (let index = start; index < end; index++) {
+    rangeArray.push(index)
+  }
 
-      return accumalator;
-    }, []);
-  });
+  return rangeArray;
+}
+
+const rangesOf = function (numbers) {
+  return numbers.map((number) => range(0, number));
 };
 
 //----------------------------------------------------------------------------
