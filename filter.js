@@ -14,7 +14,7 @@ const filterAdults = function (people) {
 //-----------------------------------------------------------------------------
 // active users 
 const filterActiveUser = function (listOfUsers) {
-  return listOfUsers.filter((user) => user.active === true);
+  return listOfUsers.filter((user) => user.active);
 };
 
 //-----------------------------------------------------------------------------
@@ -31,7 +31,7 @@ const filterLongBooks = function (listOfBooks) {
 //-----------------------------------------------------------------------------
 // users with incomplete profiles [{username: "alice", profileComplete: true}, {username: "bob", profileComplete: false}]
 const filterIncompleteProfiles = function (listOfUsers) {
-  return listOfUsers.filter((user) => user.profileComplete === false);
+  return listOfUsers.filter((user) => !user.profileComplete);
 };
 
 //-----------------------------------------------------------------------------

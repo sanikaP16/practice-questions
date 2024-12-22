@@ -80,19 +80,43 @@ const concatenateWords = function (words) {
 }
 
 // longestWord(["apple", "banana", "cherry", "kiwi"]) => "banana"
-const longestWord = function (words) { }
+const getLongestWord = function (accumalator, word) {
+  return accumalator.length < word.length ? word : accumalator;
+}
+
+const longestWord = function (words) {
+  return words.reduce(getLongestWord, "");
+}
 
 // shortestWord(["apple", "banana", "cherry", "kiwi"]) => "kiwi"
-const shortestWord = function (words) { }
+const getShortesWord = function (accumulator, word) {
+  return word.length < accumulator.length ? word : accumulator;
+}
+
+const shortestWord = function (words) {
+  return words.reduce(getShortesWord);
+}
 
 // joinWithComma(["apple", "banana", "cherry"]) => "apple,banana,cherry"
-const joinWithComma = function (words) { }
+const joinWords = (accumalator, word) => accumalator.concat(",", word);
+
+const joinWithComma = function (words) {
+  return words.reduce(joinWords);
+}
 
 // reverseWords(["hello", "world"]) => "world hello"
-const reverseWords = function (words) { }
+const getReverseWords = (accumalator, word) => word.concat(" ", accumalator);
+
+const reverseWords = function (words) {
+  return words.reduce(getReverseWords);
+}
 
 // joinWordsWithSpace(["apple", "banana", "cherry"]) => "apple banana cherry"
-const joinWordsWithSpace = function (words) { }
+const getJoinedWord = (accumalator, word) => accumalator.concat(" ", word);
+
+const joinWordsWithSpace = function (words) {
+  return words.reduce(getJoinedWord);
+}
 
 // concatenateNames(["John", "Jane", "Doe"]) => "JohnJaneDoe"
 const concatenateNames = function (names) { }
