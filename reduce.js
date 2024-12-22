@@ -13,7 +13,8 @@ const productOf = function (numbers) {
 
 // averageOf([1, 2, 3, 4, 5]) => 3
 const averageOf = function (numbers) {
-  return numbers.reduce(getSumOfNumbers, 0) / numbers.length;
+  const sumOfNumbers = numbers.reduce(getSumOfNumbers, 0);
+  return sumOfNumbers / numbers.length;
 }
 
 // minOf([3, 1, 4, 1, 5, 9, 2]) => 1
@@ -33,22 +34,50 @@ const maxOf = function (numbers) {
 }
 
 // sumPositiveNumbers([1, -2, 3, -4]) => 4
-const sumPositiveNumbers = function (numbers) { }
+const getPositiveNumbers = (element) => element > 0;
+
+const sumPositiveNumbers = function (numbers) {
+  return numbers.filter(getPositiveNumbers)
+    .reduce(getSumOfNumbers, 0);
+}
 
 // sumOfSquares([1, 2, 3, 4]) => 30
-const sumOfSquares = function (numbers) { }
+const getSquare = (element) => element * element;
+
+const sumOfSquares = function (numbers) {
+  return numbers.map(getSquare).reduce(getSumOfNumbers, 0)
+}
 
 // sumOfOddNumbers([1, 2, 3, 4, 5]) => 9
-const sumOfOddNumbers = function (numbers) { }
+const isEven = (element) => element % 2 === 0;
 
+const invert = function (f) {
+  return function (...args) {
+    return !f(...args)
+  }
+}
+
+const sumOfOddNumbers = function (numbers) {
+  return numbers.filter(invert(isEven)).reduce(getSumOfNumbers, 0);
+}
+
+//need to use reduce.
 // countNegativeNumbers([1, -2, 3, -4]) => 2
-const countNegativeNumbers = function (numbers) { }
+const countNegativeNumbers = function (numbers) {
+  return numbers.filter(invert(getPositiveNumbers)).length;
+}
 
 // findSumOfEvenSquares([1, 2, 3, 4]) => 20
-const findSumOfEvenSquares = function (numbers) { }
+const findSumOfEvenSquares = function (numbers) {
+  return numbers.filter(isEven).map(getSquare).reduce(getSumOfNumbers, 0);
+}
 
 // concatenateWords(["hello", "world"]) => "helloworld"
-const concatenateWords = function (words) { }
+const getConcatenatedWord = (accumalator, word) => accumalator.concat(word);
+
+const concatenateWords = function (words) {
+  return words.reduce(getConcatenatedWord, "");
+}
 
 // longestWord(["apple", "banana", "cherry", "kiwi"]) => "banana"
 const longestWord = function (words) { }
