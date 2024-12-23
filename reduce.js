@@ -6,9 +6,7 @@ const sumOf = function (numbers) {
 
 // productOf([1, 2, 3, 4]) => 24
 const productOf = function (numbers) {
-  return numbers.reduce(function (product, number) {
-    return product * number;
-  }, 1);
+  return numbers.reduce((product, number) => product * number, 1);
 };
 
 // averageOf([1, 2, 3, 4, 5]) => 3
@@ -74,9 +72,7 @@ const findSumOfEvenSquares = function (numbers) {
 
 // concatenateWords(["hello", "world"]) => "helloworld"
 const joinWords = function (char) {
-  return function (accumalator, word) {
-    return accumalator.concat(char, word);
-  };
+  return (accumalator, word) => accumalator.concat(char, word);
 };
 
 const concatenateWords = function (words) {
@@ -93,9 +89,9 @@ const longestWord = function (words) {
 }
 
 // shortestWord(["apple", "banana", "cherry", "kiwi"]) => "kiwi"
-const getShortesWord = function (accumulator, word) {
-  return word.length < accumulator.length ? word : accumulator;
-}
+const getShortesWord = (accumulator, word) =>
+  word.length < accumulator.length ? word : accumulator;
+
 
 const shortestWord = function (words) {
   return words.reduce(getShortesWord);
@@ -107,21 +103,18 @@ const joinWithComma = function (words) {
   return words.reduce(joinWords(","));
 };
 
-// reverseWords(["hello", "world"]) => "world hello"
-const getReverseWords = (accumalator, word) => word.concat(" ", accumalator);
+// reverseWords(["hello", "world"]) => "world hello" 
 
 const reverseWords = function (words) {
-  return words.reduce(getReverseWords);
+  return words.reduce((accumalator, word) => word.concat(" ", accumalator));
 }
 
 // joinWordsWithSpace(["apple", "banana", "cherry"]) => "apple banana cherry"
-const getJoinedWord = (accumalator, word) => accumalator.concat(" ", word);
-
 const joinWordsWithSpace = function (words) {
-  return words.reduce(getJoinedWord);
+  return words.reduce((accumalator, word) => accumalator.concat(" ", word));
 }
-// concatenateNames(["John", "Jane", "Doe"]) => "JohnJaneDoe"
 
+// concatenateNames(["John", "Jane", "Doe"]) => "JohnJaneDoe"
 const concatenateNames = function (names) {
   return names.reduce(joinWords(""));
 }
@@ -137,22 +130,49 @@ const countVowelsInWords = function (words) {
 }
 
 // makeCamelCase(["hello", "world", "how", "are", "you"]) => "helloWorldHowAreYou"
-const makeCamelCase = function (words) { }
+const makeCamelCase = function (words) {
+  return words.reduce((accumalator, word) =>
+    accumalator.concat(word[0].toUpperCase(), word.slice(1)));
+}
 
 // reverseString(["apple", "banana", "cherry"]) => "elppaananabyrrehc"
-const reverseString = function (words) { }
+const getReversedWord = (accumalator, word) =>
+  accumalator.concat(word.split("").reverse());
+
+const reverseString = function (words) {
+  return words.reduce(getReversedWord, "");
+}
 
 // duplicateNumbers([1, 2, 3]) => [1, 1, 2, 2, 3, 3]
 const duplicateNumbers = function (numbers) { }
 
 // concatenateArrays([[1, 2], [3, 4], [5, 6]]) => [1, 2, 3, 4, 5, 6]
-const concatenateArrays = function (arrays) { }
+
+const getArray = (accumalator, listOfElement) =>
+  [...accumalator, ...listOfElement];
+
+const concatenateArrays = function (arrays) {
+  return arrays.reduce(getArray);
+}
 
 // flattenArray([[1, 2], [3, 4], [5, 6]]) => [1, 2, 3, 4, 5, 6]
-const flattenArray = function (arrays) { }
+
+const flattenArray = function (arrays) {
+  return arrays.reduce(getArray);
+}
 
 // uniqueNumbers([1, 2, 2, 3, 4, 4, 5]) => [1, 2, 3, 4, 5]
-const uniqueNumbers = function (numbers) { }
+const getUniqueNumbers = (uniqueArray, element) => {
+  if (!uniqueArray.includes(element)) {
+    uniqueArray.push(element);
+  }
+
+  return uniqueArray;
+}
+
+const uniqueNumbers = function (numbers) {
+  return numbers.reduce(getUniqueNumbers, []);
+}
 
 // groupByLength(["apple", "banana", "cherry", "date"]) => { 5: ["apple", "cherry"], 6: ["banana"], 4: ["date"] }
 const groupByLength = function (strings) { }
@@ -174,7 +194,19 @@ const invertObject = function (obj) { }
 
 // mergeArrays([["a", 1], ["b", 2]], [["c", 3], ["d", 4]]) => { "a": 1, "b": 2, "c": 3, "d": 4 }
 const mergeArrays = function (arr1, arr2) { }
+// const getColumn = function (array, column) {
+//   return array.reduce(function (columnArray, element) {
+//     columnArray.push(element[column]);
 
+//     return columnArray;
+//   }, []);
+// };
+
+// const mergeArrays = function (arr1, arr2) {
+//   const mergedArray = [...arr1, ...arr2];
+
+//   return zip(getColumn(mergedArray, 0), getColumn(mergedArray, 1));
+// };
 // groupByProperty([{name: "John", age: 25}, {name: "Jane", age: 30}]) => { 25: [{name: "John", age: 25}], 30: [{name: "Jane", age: 30}] }
 const groupByProperty = function (objects) { }
 

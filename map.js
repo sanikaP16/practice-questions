@@ -504,7 +504,9 @@ const multiplyByCorresponding = function (bases, multipliers) { };
 // [{name: "Alice", age: 30}, {name: "Bob", age: 40}] => ["Alice will retire in 35 years", "Bob will retire in 25 years"]
 const calculateRetirement = function (people) { };
 
-// given an array of numbers, create a closure that checks if a number is greater than or equal to a specified value (e.g., 10), then use flatMap to return only the numbers that meet the condition
+// given an array of numbers, create a closure that checks if a number is greater
+//  than or equal to a specified value (e.g., 10), then use flatMap to return
+//  only the numbers that meet the condition
 // [5, 10, 15], 10 => [10, 15]
 const filterGreaterThanEqual = function (numbers, threshold) { };
 

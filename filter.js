@@ -1,9 +1,11 @@
 const filterEvenNumbers = function (numbers) {
   return numbers.filter((element) => element % 2 === 0);
 };
-//**** */
-// words with more than 5 letters ["apple", "banana", "kiwi", "grape"] => ["banana"]
-const filterLongWords = function (words) { };
+
+//-----------------------------------------------------------------------------
+const filterLongWords = function (words) {
+  return words.filter((word) => word.length > 5);
+};
 
 //-----------------------------------------------------------------------------
 // people older than 30
@@ -58,7 +60,8 @@ const filterRecentOrders = function (orders) { };
 const getSum = (sumOfPrice, product) => product.price + sumOfPrice;
 
 const filterBelowAveragePrice = function (listOfProducts) {
-  const averagePrice = listOfProducts.reduce(getSum, 0) / listOfProducts.length;
+  const sumOfNumbers = listOfProducts.reduce(getSum, 0);
+  const averagePrice = sumOfNumbers / listOfProducts.length;
 
   return listOfProducts.filter((product) => product.price < averagePrice);
 };
