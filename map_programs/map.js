@@ -1,6 +1,5 @@
 const squaresOf = function (numbers) {
-  const listOfNumber = numbers;
-  return listOfNumber.map((element) => element * element);
+  return numbers.map((element) => element * element);
 };
 
 //----------------------------------------------------------------------------
@@ -30,10 +29,11 @@ const reversedStringsOf = function (strings) {
   return strings.map((element) => [...element].reverse().join(""));
 };
 
+const repeatTwice = (string) => string.repeat(2);
 //----------------------------------------------------------------------------
 const doubleLettersOf = function (strings) {
   return strings.map((element) =>
-    [...element].map((element) => element + element).join(""));
+    [...element].map(repeatTwice).join(""));
 };
 
 //----------------------------------------------------------------------------
@@ -110,12 +110,13 @@ const withoutVowelsOf = function (strings) {
 const getCumulativeSum = function () {
   let sum = 0;
   return function (num) {
-    return sum += num;
+    sum += num
+    return sum;
   }
 };
 
 const cumulativeSumsOf = function (arrays) {
-  return arrays.map((element) => element.map(getCumulativeSum(element)));
+  return arrays.map((element) => element.map(getCumulativeSum()));
 };
 
 //----------------------------------------------------------------------------
@@ -320,34 +321,82 @@ const calculateRanks = function (objects) { };
 // normalize strings by the longest string length in 
 // ["cat", "elephant", "dog"] => ["cat    ", "elephant", "dog    "]
 // (pad with spaces to match the longest length)
-const normalizeStringLengths = function (strings) { };
+const getLength = (strings) => {
+  const longestWord = strings.reduce((accumalator, word) =>
+    accumalator.length < word.length ? word : accumalator);
+
+  return longestWord.length;
+}
+
+const normalizeStringLengths = function (strings) {
+  const lengthOfLongestWord = getLength(strings);
+
+  return strings.map((string) => string.padEnd(lengthOfLongestWord));
+};
 
 // normalize strings by centering them based on the longest string length in 
 // ["cat", "elephant", "dog"] => ["  cat   ", "elephant", "  dog   "]
 // (pad with spaces to justify to the center)
-const centerJustifyStrings = function (strings) { };
+const centerJustifyStrings = function (strings) {
+  const longestWordLength = getLength(strings);
+
+  return strings.map(string => {
+    const padStart = Math.ceil(longestWordLength - string.length) / 2 + string.length;
+    return string.padStart(padStart).padEnd(longestWordLength)
+  });
+};
 
 // scale all numbers proportionally so the largest number becomes 100 in [20, 50, 80] 
 // => [25, 62.5, 100]
-const scaleToMax100 = function (numbers) { };
+const getMaxNum = (numbers) =>
+  numbers.reduce((maxNum, number) =>
+    maxNum > number ? maxNum : number, -Infinity);
+
+const scaleToMax100 = function (numbers) {
+  const maxNumber = getMaxNum(numbers);
+  const scaleValue = 100 / maxNumber
+
+  return numbers.map(number => number * scaleValue);
+};
 
 // map each number to the difference between it and the average of the array in [10, 20, 30] => [-10, 0, 10]
-const differencesFromMean = function (numbers) { };
+const getAverageOf = function (numbers) {
+  const sumOfNumbers = numbers.reduce((sum, num) => sum + num, 0);
+  return sumOfNumbers / numbers.length;
+}
+
+const differencesFromMean = function (numbers) {
+  const average = getAverageOf(numbers);
+
+  return numbers.map(number => number - average);
+};
 
 // map each string to its frequency in ["apple", "banana", "apple", "apple", "banana"] => [3, 2, 3, 3, 2]
 const stringFrequencies = function (strings) { };
 
 // mark the largest number in an array as true, others as false in [1, 3, 2] => [false, true, false]
-const markLargestNumber = function (numbers) { };
 
-/////////////////////
+const markLargestNumber = function (numbers) {
+  const largestNum = getMaxNum(numbers);
+
+  return numbers.map(number => number === largestNum);
+};
+
 // normalize scores based on a curve: first find the max score, then subtract the mean, and scale the results to a range of 0-100 in [{ name: "Alice", score: 80 }, { name: "Bob", score: 100 }, { name: "Charlie", score: 90 }] => [60, 100, 80]
 // Steps: Find max score, calculate mean, normalize each score.
-const normalizeWithCurve = function (objects) { };
+const normalizeWithCurve = function (objects) {
+  const listOfScore = objects.map(object => object.score);
+  const maxNum = getMaxNum(listOfScore);
+  const mean = getAverageOf(listOfScore);
+
+  return
+};
 
 // group students by their grades: first categorize them into A, B, C, and so on, then map each student to their respective category in [{ name: "Alice", grade: 85 }, { name: "Bob", grade: 92 }] => [['Alice', 'B'], ['Bob', 'A']]
 // Steps: Categorize grades, then group students by category.
-const groupByGrade = function (objects) { };
+const groupByGrade = function (objects) {
+
+};
 
 // sort strings by length first, and then alphabetically if lengths are equal in ["cat", "banana", "apple", "kiwi"] => ["cat", "kiwi", "apple", "banana"]
 // Steps: Sort by length, then by lexicographical order.

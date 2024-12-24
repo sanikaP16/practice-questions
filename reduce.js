@@ -32,10 +32,9 @@ const maxOf = function (numbers) {
 }
 
 // sumPositiveNumbers([1, -2, 3, -4]) => 4
-const getPositiveNumbers = (element) => element > 0;
 
 const sumPositiveNumbers = function (numbers) {
-  return numbers.filter(getPositiveNumbers)
+  return numbers.filter((element) => element > 0)
     .reduce(getSumOfNumbers, 0);
 }
 
