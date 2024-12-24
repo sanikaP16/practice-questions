@@ -198,10 +198,14 @@ const filterRecentBooks = function (books, yearThreshold) {
 };
 
 // Count the number of posts for each user, then filter for users with more than a specific number of posts [{username: "Alice", posts: 100}, {username: "Bob", posts: 50}] => [{username: "Alice", posts: 100}]
-const filterActivePosters = function (users, postThreshold) { };
+const filterActivePosters = function (users, postThreshold) {
+  return users.filter(({ posts }) => posts > postThreshold);
+};
 
 // Convert students' grades to letter grades, then filter for students who received a specific grade [{name: "Alice", grade: 90}, {name: "Bob", grade: 85}] => [{name: "Alice", grade: 90}]
-const filterSpecificGrade = function (students, grade) { };
+const filterSpecificGrade = function (students, specificGrade) {
+  return students.filter(({ grade }) => grade === specificGrade);
+};
 
 // Filter products based on category and price threshold [{category: {type: "electronics"}, name: "Laptop", price: 800}, {category: {type: "furniture"}, name: "Chair", price: 150}] => [{category: {type: "electronics"}, name: "Laptop", price: 800}]
 const filterByCategoryAndPrice = function (products, category, maxPrice) { };
@@ -240,7 +244,8 @@ const filterTeamsByDepartment = function (teams, department) { };
 const filterProductsByReviewRating = function (products, minRating) { };
 
 // Filter orders where one of the items is below a certain price [{order: {items: [{product: "Shirt", price: 25}, {product: "Shoes", price: 50}]}}] => [{order: {items: [{product: "Shirt", price: 25}, {product: "Shoes", price: 50}]}}]
-const filterOrdersByItemPrice = function (orders, maxPrice) { };
+const filterOrdersByItemPrice = function (orders, maxPrice) {
+};
 
 // Filter events where at least one speaker is a particular person [{event: {name: "Tech Talk", speakers: [{name: "John"}, {name: "Alice"}]}}] => [{event: {name: "Tech Talk", speakers: [{name: "John"}, {name: "Alice"}]}}]
 const filterEventsBySpeaker = function (events, speakerName) { };
