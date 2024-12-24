@@ -183,7 +183,8 @@ const countOccurrences = function (strings) { }
 const mergeObjects = function (objects) { }
 
 // zip(["a", "b", "c"], [1, 2, 3]) => { "a": 1, "b": 2, "c": 3 }
-const zip = function (keys, values) { }
+const zip = function (keys, values) {
+}
 
 // makeObject(["city", "country"], ["Paris", "France"]) => { "city": "Paris", "country": "France" }
 const makeObject = function (keys, values) { }
